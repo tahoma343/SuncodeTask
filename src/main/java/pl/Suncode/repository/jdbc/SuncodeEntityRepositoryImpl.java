@@ -21,8 +21,8 @@ public class SuncodeEntityRepositoryImpl implements SuncodeEntityRepository {
 		String queryString = "SELECT " + column + " FROM SuncodeEntity GROUP BY " + column + " HAVING COUNT(*)=1";
 		List<SuncodeEntity> finalValues = new ArrayList();
 		List<T> values = getSession().createQuery(queryString).getResultList();
-
-		values.forEach(value -> finalValues.addAll(findByValue(column, values)));
+		
+		values.forEach(value -> finalValues.addAll(findByValue(column, value)));
 		return finalValues;
 	}
 
@@ -31,7 +31,7 @@ public class SuncodeEntityRepositoryImpl implements SuncodeEntityRepository {
 		List<SuncodeEntity> finalValues = new ArrayList();
 		List<T> values = getSession().createQuery(queryString).getResultList();
 
-		values.forEach(value -> finalValues.addAll(findByValue(column, values)));
+		values.forEach(value -> finalValues.addAll(findByValue(column, value)));
 		return finalValues;
 	}
 

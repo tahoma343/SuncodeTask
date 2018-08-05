@@ -10,28 +10,14 @@ function send() {
 		dataType : 'json',
 		url : $BASE_URL + 'search',
 		data : JSON.stringify($data),
-
+		
+		beforeSend: function(){
+			 $('#multipleResults').html('&nbsp;');
+		     $('#singleResults').html('&nbsp;');
+		   },
 		success : function(res) {
-			const multipleVal = res.multipleValues;
-			const singleVal = res.singleValues;
-			var iter = 0;
-
-			// $('#result').html("&nbsp;");
-			// $('#result').append("Multiple Values : "+"</br>");
-
-			$.each(multipleVal[0], function(index, value) {
-				$('#headers').append('<th>' + index + '</th>');
-			});
-
-			$.each(multipleVal, function() {
-				iter++;
-
-				$('#result').append('<tr>');
-				$.each(multipleVal[iter], function(index, value) {
-					$('#result').append('<th>' + value + '</th>');
-				});
-			});$('#result').append('</tr>');
-
+			displayTable(res.multipleValues, 'multiple');
+			displayTable(res.singleValues, 'single');
 		},
 		error : function(error) {
 			$('#error').text(error.status);
@@ -44,3 +30,23 @@ function send() {
 		}
 	});
 }
+
+	function displayTable(values, type) {
+		var iter = 0;
+		$('#'+type+'Results').append('<tr id="' + type + 'Headers"></tr>');
+		
+		$.each(values[0], function(index, value) {
+			$('#'+type+'Headers').append('<th>' + index + '</th>');
+		});
+
+		$.each(values, function() {
+			$('#'+type+'Results').append('<tr>');
+			$.each(values[iter], function(index, value) {
+				$('#'+type+'Results').append('<th>' + value + '</th>');
+			});
+			iter++;
+		});
+		$('#'+type+'Results').append('</tr>');
+	}
+	
+	

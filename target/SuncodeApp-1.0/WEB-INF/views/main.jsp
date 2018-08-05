@@ -28,28 +28,35 @@
 		%>
 	</h1>
 
-	<div id="main-center">
+	<div id="main-center" class="border">
 		<form>
-			<select class="btn btn-mini" id="tableType">
+			<select class="btn-lg" id="tableType">
 				<option value="kolumna1">kolumna1</option>
 				<option value="kolumna2">kolumna2</option>
 				<option value="kolumna3">kolumna3</option>
 				<option value="kolumna4">kolumna4</option>
 			</select>
-			<button onclick="send()" type="button" class="btn btn-dark">Send</button>
+			<button onclick="send()" type="button" class="btn-lg">Send</button>
 		</form>
 		</br>
 
-		<h2>Your resoult is:</h2>
+		<h1>Your resoult is:</h1>
 		</br>
 
-			
-			<table class="greyGridTable">
-						<tbody id="result">
-							<tr id="headers"></tr>
+			<table class="gridTable">
+			<h3>Multiple Values :</h3>
+						<tbody id="multipleResults">
+						</tbody>
+					</table>
+				
+				<table class="gridTable">
+			<h3>Single Values :</h3>
+						<tbody id="singleResults">
 						</tbody>
 					</table>
 				</div>
+				
+				
 		<script>
 			$(document).ready(function() {
 				var cleanUp = function() {
