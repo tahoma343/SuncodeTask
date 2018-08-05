@@ -1,5 +1,7 @@
 Simple recruitment task for Suncode
 
+To run app use mvn clean install jetty:run.
+
 Used technologies
 - Spring Mvc 5.0.8 RELEASE
 - Hibernate 5.2.11
