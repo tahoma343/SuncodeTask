@@ -1,5 +1,4 @@
 Simple recruitment task for Suncode
-
 To run app use mvn clean install jetty:run.
 
 Used technologies
