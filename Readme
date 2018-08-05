@@ -1,0 +1,10 @@
+Simple recruitment task for Suncode
+
+Used technologies
+- Spring Mvc 5.0.8 RELEASE
+- Hibernate 5.2.11
+- jsp 2.3.1
+- gson 2.8.5
+- Maven
+- Jetty
+- Postgresql 9.5.13
